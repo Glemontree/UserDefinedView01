@@ -22,7 +22,22 @@ public class MyView extends View {
     }
 
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        setMeasuredDimension(200, 200);
+        // 1. 设置固定的大小
+//        setMeasuredDimension(200, 200);
+        // 2. 根据widthMeasureSpec和heightMeasureSpec测量View
+        setMeasuredDimension(measureSpec(widthMeasureSpec), measureSpec(heightMeasureSpec));
+    }
+
+    private int measureSpec(int measureSpec) {
+        int result = 0;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+        if (specMode == MeasureSpec.EXACTLY) {
+            result = specSize;
+        } else {
+            result = 900;
+        }
+        return result;
     }
 
     public void onDraw(Canvas canvas) {

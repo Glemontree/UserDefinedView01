@@ -11,6 +11,6 @@
     tools:context="com.glemontree.myview.MainActivity">
 
     <com.glemontree.myview.MyView
-        android:layout_width="600dp"
-        android:layout_height="600dp" />
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
